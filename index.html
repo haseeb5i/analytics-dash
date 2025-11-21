@@ -5,9 +5,18 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/css/tom-select.bootstrap5.min.css"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/css/tabler-vendors.min.css"
     />
   </head>
   <body>
@@ -31,6 +40,201 @@
       </div>
     </div>
 
+    <div class="card" style="--tblr-card-border-width: 0">
+      <div class="row g-0">
+        <div class="col-12 col-md-3 border-end">
+          <!-- side-nav start -->
+          <div class="card-body">
+            <h4 class="subheader">General settings</h4>
+            <div
+              class="list-group list-group-transparent"
+              data-bs-toggle="tabs"
+            >
+              <a
+                href="#tabs-home-ex1"
+                class="list-group-item list-group-item-action d-flex align-items-center active"
+                data-bs-toggle="tab"
+                >My Account</a
+              >
+              <a
+                href="#tabs-profile-ex1"
+                class="list-group-item list-group-item-action d-flex align-items-center"
+                data-bs-toggle="tab"
+                >My Notifications</a
+              >
+              <a
+                href="#"
+                class="list-group-item list-group-item-action d-flex align-items-center"
+                >Connected Apps</a
+              >
+            </div>
+            <h4 class="subheader mt-4">Experience</h4>
+            <div class="list-group list-group-transparent">
+              <a href="#" class="list-group-item list-group-item-action"
+                >Give Feedback</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-9 d-flex flex-column">
+          <div class="tab-content card-body">
+            <div class="tab-pane active show" id="tabs-home-ex1">
+              <h4>Home tab</h4>
+              <div class="mb-4">
+                Cursus turpis vestibulum, dui in pharetra vulputate id sed non
+                turpis ultricies fringilla at sed facilisis lacus pellentesque
+                purus nibh
+              </div>
+
+              <div class="mb-3">
+                <div class="form-label">Simple Input</div>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="example-text-input"
+                  placeholder="Input placeholder"
+                />
+              </div>
+
+              <div class="mb-3">
+                <div class="form-label">Select</div>
+                <select class="form-select">
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <div class="form-label">Select multiple</div>
+                <select class="form-select" id="select-states" multiple>
+                  <option value="CO">Colorado</option>
+                  <option value="CT">Connecticut</option>
+                  <option value="DE">Delaware</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <div class="form-label">Single switch</div>
+                <label class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" />
+                  <span class="form-check-label"
+                    >I agree with terms and conditions</span
+                  >
+                </label>
+              </div>
+
+              <div class="mb-3">
+                <div class="form-label">Inline Radios</div>
+                <div>
+                  <label class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="radios-inline"
+                      checked
+                    />
+                    <span class="form-check-label">Option 1</span>
+                  </label>
+                  <label class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="radios-inline"
+                    />
+                    <span class="form-check-label">Option 2</span>
+                  </label>
+                  <label class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="radios-inline"
+                      disabled
+                    />
+                    <span class="form-check-label">Option 3</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <div class="form-label">Inline Checkboxes</div>
+                <div>
+                  <label class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" />
+                    <span class="form-check-label">Option 1</span>
+                  </label>
+                  <label class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" disabled />
+                    <span class="form-check-label">Option 2</span>
+                  </label>
+                  <label class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" checked />
+                    <span class="form-check-label">Option 3</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <div class="form-label">Select One</div>
+                <div class="form-selectgroup">
+                  <label class="form-selectgroup-item">
+                    <input
+                      type="radio"
+                      name="name"
+                      value="HTML"
+                      class="form-selectgroup-input"
+                      checked
+                    />
+                    <span class="form-selectgroup-label">HTML</span>
+                  </label>
+                  <label class="form-selectgroup-item">
+                    <input
+                      type="radio"
+                      name="name"
+                      value="CSS"
+                      class="form-selectgroup-input"
+                    />
+                    <span class="form-selectgroup-label">CSS</span>
+                  </label>
+                  <label class="form-selectgroup-item">
+                    <input
+                      type="radio"
+                      name="name"
+                      value="PHP"
+                      class="form-selectgroup-input"
+                    />
+                    <span class="form-selectgroup-label">PHP</span>
+                  </label>
+                  <label class="form-selectgroup-item">
+                    <input
+                      type="radio"
+                      name="name"
+                      value="JavaScript"
+                      class="form-selectgroup-input"
+                    />
+                    <span class="form-selectgroup-label">JavaScript</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <!-- first-tab end -->
+
+            <div class="tab-pane" id="tabs-profile-ex1">
+              <h4>Profile tab</h4>
+              <div>
+                Fringilla egestas nunc quis tellus diam rhoncus ultricies
+                tristique enim at diam, sem nunc amet, pellentesque id egestas
+                velit sed
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end section 1 -->
+      </div>
+      <!-- end row -->
+    </div>
+
     <div class="modal" id="filterModal" tabindex="-1">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -43,154 +247,26 @@
               aria-label="Close"
             ></button>
           </div>
-
-          <div style="--tblr-modal-padding: 0" class="modal-body card">
-            <div class="card-header">
-              <ul class="nav nav-tabs card-header-tabs" data-bs-toggle="tabs">
-                <li class="nav-item">
-                  <a
-                    href="#tabs-home-ex1"
-                    class="nav-link active"
-                    data-bs-toggle="tab"
-                    >General</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a
-                    href="#tabs-profile-ex1"
-                    class="nav-link"
-                    data-bs-toggle="tab"
-                    >Account</a
-                  >
-                </li>
-              </ul>
-            </div>
-            <div class="card-body">
-              <div class="tab-content">
-                <div class="tab-pane active show" id="tabs-home-ex1">
-                  <h4>Main Filters</h4>
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <label class="form-label">Visibility</label>
-                      <select class="form-select">
-                        <option value="1" selected>Private</option>
-                        <option value="2">Public</option>
-                        <option value="3">Hidden</option>
-                      </select>
-                    </div>
-                    <div class="col-lg-6">
-                      <label class="form-label">Reporting period</label>
-                      <input type="date" class="form-control" />
-                    </div>
-                  </div>
-                </div>
-                <div class="tab-pane" id="tabs-profile-ex1">
-                  <h4>Profile tab</h4>
-                  <div>
-                    Fringilla egestas nunc quis tellus diam rhoncus ultricies
-                    tristique enim at diam, sem nunc amet, pellentesque id
-                    egestas velit sed
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- end card-body -->
-
-            <div class="card" style="--tblr-card-border-width: 0">
-              <div class="row g-0">
-                <div class="col-12 col-md-3 border-end">
-                  <div class="card-body">
-                    <h4 class="subheader">Business settings</h4>
-                    <div class="list-group list-group-transparent">
-                      <a
-                        href="./settings.html"
-                        class="list-group-item list-group-item-action d-flex align-items-center active"
-                        >My Account</a
-                      >
-                      <a
-                        href="#"
-                        class="list-group-item list-group-item-action d-flex align-items-center"
-                        >My Notifications</a
-                      >
-                      <a
-                        href="#"
-                        class="list-group-item list-group-item-action d-flex align-items-center"
-                        >Connected Apps</a
-                      >
-                    </div>
-                    <h4 class="subheader mt-4">Experience</h4>
-                    <div class="list-group list-group-transparent">
-                      <a href="#" class="list-group-item list-group-item-action"
-                        >Give Feedback</a
-                      >
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-12 col-md-9 d-flex flex-column">
-                  <div class="card-body">
-                    <h2 class="mb-4">My Account</h2>
-                    <h3 class="card-title">Profile Details</h3>
-                    <div class="row align-items-center">
-                      <div class="col-auto">
-                        <span
-                          class="avatar avatar-xl"
-                          style="
-                            background-image: url(./static/avatars/000m.jpg);
-                          "
-                        >
-                        </span>
-                      </div>
-                      <div class="col-auto">
-                        <a href="#" class="btn btn-1"> Change avatar </a>
-                      </div>
-                      <div class="col-auto">
-                        <a href="#" class="btn btn-ghost-danger btn-3">
-                          Delete avatar
-                        </a>
-                      </div>
-                    </div>
-                    <h3 class="card-title mt-4">Email</h3>
-                    <p class="card-subtitle">
-                      This contact will be shown to others publicly, so choose
-                      it carefully.
-                    </p>
-                    <div>
-                      <div class="row g-2">
-                        <div class="col-auto">
-                          <input
-                            type="text"
-                            class="form-control w-auto"
-                            value="paweluna@howstuffworks.com"
-                          />
-                        </div>
-                        <div class="col-auto">
-                          <a href="#" class="btn btn-1"> Change </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="modal-footer">
-              <button type="button" class="btn" data-bs-dismiss="modal">
-                Close
-              </button>
-              <button
-                type="button"
-                class="btn btn-primary"
-                data-bs-dismiss="modal"
-              >
-                Save changes
-              </button>
-            </div>
+          <!-- modal-body start -->
+          <div style="--tblr-modal-padding: 0" class="modal-body"></div>
+          <!-- modal-body end -->
+          <div class="modal-footer bg-transparent">
+            <button type="button" class="btn" data-bs-dismiss="modal">
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Save changes
+            </button>
           </div>
         </div>
       </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/litepickeropendays/dist/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/js/tom-select.base.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.4.0/dist/js/tabler.min.js"></script>
     <script type="module">
       import { h, render } from "https://esm.sh/preact";
@@ -201,6 +277,19 @@
 
       function App(props) {
         return html` <h1>Hello ${props.name}!</h1> `;
+      }
+
+      if (window.TomSelect) {
+        new TomSelect("#select-states", {
+          render: {
+            item: function (data, escape) {
+              return "<div>" + escape(data.text) + "</div>";
+            },
+            option: function (data, escape) {
+              return "<div>" + escape(data.text) + "</div>";
+            },
+          },
+        });
       }
     </script>
   </body>
