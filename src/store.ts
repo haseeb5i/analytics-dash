@@ -1,56 +1,47 @@
 import { createStore } from "zustand/vanilla";
-import { setDeepValue } from "./utils";
 
 type FilterState = {
   name: string;
-  dateTime: string;
-  income: {
-    types: string[];
-  };
-  allocation: {
-    donationItem: string[];
-    location: string[];
-  };
+  dateRange: string;
+  "income.exclude": string;
+  "income.types": string[];
+  "allocation.donationItem": string[];
+  "allocation.location": string[];
 };
 
 const defaultFilters: FilterState = {
   name: "",
-  dateTime: "",
-  income: {
-    types: [],
-  },
-  allocation: {
-    donationItem: [],
-    location: [],
-  },
+  dateRange: "",
+  "income.exclude": "yes",
+  "income.types": [],
+  "allocation.donationItem": [],
+  "allocation.location": [],
 };
+
+type FilterKeys = keyof FilterState;
 
 type AppState = {
   currentFilters: FilterState;
-  draftFilters: FilterState | null;
-  updateFilter: (path: string, value: any) => void;
+  draftFilters: Partial<FilterState>;
+  updateFilter: (key: FilterKeys, value: any) => void;
   saveFilters: () => void;
   clearDraft: () => void;
 };
 
 export const store = createStore<AppState>((set) => ({
   currentFilters: defaultFilters,
-  draftFilters: null,
-  updateFilter: (path: string, value: any) =>
+  draftFilters: {},
+  updateFilter: (path: FilterKeys, value: any) =>
     set((state) => {
-      // Create a clone of currentFilters when starting a draft so we don't
-      // accidentally mutate the shared default/current object.
-      const base = state.draftFilters ? state.draftFilters : JSON.parse(JSON.stringify(state.currentFilters));
-      setDeepValue(base, path, value);
-      return { draftFilters: base } as Partial<AppState>;
+      return { draftFilters: { ...state.draftFilters, [path]: value } };
     }),
   saveFilters: () => {
     set((state) => ({
-      currentFilters: state.draftFilters || state.currentFilters,
-      draftFilters: null,
+      currentFilters: { ...state.currentFilters, ...state.draftFilters },
+      draftFilters: {},
     }));
   },
   clearDraft: () => {
-    set(() => ({ draftFilters: null }));
+    set(() => ({ draftFilters: {} }));
   },
 }));

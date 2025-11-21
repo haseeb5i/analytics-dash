@@ -5,6 +5,7 @@ import Litepicker from "litepicker";
 import TomSelect from "tom-select";
 
 import type { TomTemplate, TomSettings } from "tom-select/src/types/index.ts";
+import { store } from "./store";
 
 const html = htm.bind(h);
 
@@ -111,14 +112,15 @@ function DateRangePicker(props: DateRangePickerProps) {
           { value: "14", label: "Last 14 days" },
         ]}
         tomSelectOpts=${{
-          onChange: function (newValue) {
+          onChange: function (newValue: string) {
+            store.getState().updateFilter("dateRange", newValue);
             if (newValue === "x") {
               setShow(true);
             } else {
               setShow(false);
             }
           },
-        } as TomSettings}
+        }}
       />
       <div class="form-control relative" hidden=${!show}>
         <div class="flex align-items-center">
@@ -154,6 +156,10 @@ export function Filters() {
           class="form-control"
           placeholder="Critera name"
           name="example-text-input"
+          onInput=${(event: Event) => {
+            const t = event.target as HTMLInputElement;
+            store.getState().updateFilter("name", t.value);
+          }}
         />
       </div>
 
@@ -182,6 +188,9 @@ export function Filters() {
             name="btn-radio-basic"
             id="btn-radio-basic-1"
             autocomplete="off"
+            onChange=${() => {
+              store.getState().updateFilter("income.exclude", "yes");
+            }}
             checked
           />
           <label for="btn-radio-basic-1" type="button" class="btn btn-sm"
@@ -193,6 +202,9 @@ export function Filters() {
             name="btn-radio-basic"
             id="btn-radio-basic-2"
             autocomplete="off"
+            onChange=${() => {
+              store.getState().updateFilter("income.exclude", "no");
+            }}
           />
           <label for="btn-radio-basic-2" type="button" class="btn btn-sm"
             >No</label
@@ -207,6 +219,11 @@ export function Filters() {
         ]}
         multiple
         classes=${{ container: "mb-2" }}
+        tomSelectOpts=${{
+          onChange: function (newValue: string[]) {
+            store.getState().updateFilter("income.types", newValue);
+          },
+        }}
       />
     </div>
   `;
